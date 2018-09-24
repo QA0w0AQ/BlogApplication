@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using BlogApplication.Helpers;
 using BlogApplication.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace BlogApplication.Controllers
 {
@@ -17,9 +19,13 @@ namespace BlogApplication.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.Posts.ToList());
+            int pageSize = 2; // display three blog posts at a time on this page
+            int pageNumber = (page ?? 1);
+
+            var post = db.Posts.OrderBy(p => p.Id).ToPagedList(pageNumber, pageSize);
+            return View(post);
         }
 
         // GET: BlogPosts/Details/5

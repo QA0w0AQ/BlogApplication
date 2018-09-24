@@ -118,3 +118,7 @@ C:\Users\SD15\source\repos\BlogApplication\BlogApplication\obj\Debug\BlogApplica
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\obj\Debug\BlogApplication.dll
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\obj\Debug\BlogApplication.pdb
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\obj\Debug\BlogApplication.csprojAssemblyReference.cache
+C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PagedList.dll
+C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PagedList.Mvc.dll
+C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PagedList.xml
+C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PagedList.Mvc.xml

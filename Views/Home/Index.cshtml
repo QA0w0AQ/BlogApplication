@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<BlogApplication.Models.BlogPost>
+
+@{
     ViewBag.Title = "Home Page";
     Layout = null;
 }
@@ -17,7 +19,8 @@
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700" rel="stylesheet">
-
+    <!-- PagedList -->
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="~/Css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Css/font-awesome.min.css" />
@@ -111,109 +114,109 @@
                 <h2>Latest blogs</h2>
             </div>
             @*<div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="recipe">
-                        <img src="img/recipes/1.jpg" alt="">
-                        <div class="recipe-info-warp">
-                            <div class="recipe-info">
-                                <h3>Traditional Pizza</h3>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star is-fade"></i>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="recipe">
+                            <img src="img/recipes/1.jpg" alt="">
+                            <div class="recipe-info-warp">
+                                <div class="recipe-info">
+                                    <h3>Traditional Pizza</h3>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star is-fade"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-md-6">
-                    <div class="recipe">
-                        <img src="img/recipes/2.jpg" alt="">
-                        <div class="recipe-info-warp">
-                            <div class="recipe-info">
-                                <h3>Italian home-made pasta</h3>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star is-fade"></i>
+                    <div class="col-lg-4 col-md-6 col-md-6">
+                        <div class="recipe">
+                            <img src="img/recipes/2.jpg" alt="">
+                            <div class="recipe-info-warp">
+                                <div class="recipe-info">
+                                    <h3>Italian home-made pasta</h3>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star is-fade"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="recipe">
-                        <img src="img/recipes/3.jpg" alt="">
-                        <div class="recipe-info-warp">
-                            <div class="recipe-info">
-                                <h3>Chesse Cake Tart</h3>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star is-fade"></i>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="recipe">
+                            <img src="img/recipes/3.jpg" alt="">
+                            <div class="recipe-info-warp">
+                                <div class="recipe-info">
+                                    <h3>Chesse Cake Tart</h3>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star is-fade"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="recipe">
-                        <img src="img/recipes/4.jpg" alt="">
-                        <div class="recipe-info-warp">
-                            <div class="recipe-info">
-                                <h3>Traditional Pizza</h3>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star is-fade"></i>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="recipe">
+                            <img src="img/recipes/4.jpg" alt="">
+                            <div class="recipe-info-warp">
+                                <div class="recipe-info">
+                                    <h3>Traditional Pizza</h3>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star is-fade"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="recipe">
-                        <img src="img/recipes/5.jpg" alt="">
-                        <div class="recipe-info-warp">
-                            <div class="recipe-info">
-                                <h3>Italian home-made pasta</h3>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star is-fade"></i>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="recipe">
+                            <img src="img/recipes/5.jpg" alt="">
+                            <div class="recipe-info-warp">
+                                <div class="recipe-info">
+                                    <h3>Italian home-made pasta</h3>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star is-fade"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="recipe">
-                        <img src="img/recipes/6.jpg" alt="">
-                        <div class="recipe-info-warp">
-                            <div class="recipe-info">
-                                <h3>Chesse Cake Tart</h3>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star is-fade"></i>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="recipe">
+                            <img src="img/recipes/6.jpg" alt="">
+                            <div class="recipe-info-warp">
+                                <div class="recipe-info">
+                                    <h3>Chesse Cake Tart</h3>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star is-fade"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>*@
+                </div>*@
         </div>
     </section>
     <!-- Add section end -->
