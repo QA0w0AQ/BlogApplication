@@ -120,8 +120,7 @@ namespace BlogApplication.Controllers
             {
                 var blog = db.Posts.Where(p => p.Id == blogPost.Id).FirstOrDefault();
 
-                blog.Body = blogPost.Body;
-                blog.MediaURL = blogPost.MediaURL;
+                blog.Body = blogPost.Body;                
                 blog.Published = blogPost.Published;
                 blog.Slug = blogPost.Slug;
                 blog.Title = blogPost.Title;
@@ -129,12 +128,12 @@ namespace BlogApplication.Controllers
                 db.SaveChanges();
                 if (ImageUploadValidator.IsWebFriendlyImage(image))
                 {
-                    var fileName = Path.GetFileName(image.FileName);
-                    image.SaveAs(Path.Combine(Server.MapPath("~/Image/"), fileName));
-                    blogPost.MediaURL = "/Image/" + fileName;
+                    var fileName2 = Path.GetFileName(image.FileName);
+                    image.SaveAs(Path.Combine(Server.MapPath("~/Image/"), fileName2));
+                    blogPost.MediaURL = "/Image/" + fileName2;
                 }
-               
-                
+                blog.MediaURL = blogPost.MediaURL;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(blogPost);

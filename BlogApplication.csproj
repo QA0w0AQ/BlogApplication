@@ -236,6 +236,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\58dcd034c2580.jpg" />
+    <Content Include="Image\Abby.jpg" />
+    <Content Include="Image\Angel.jpg" />
+    <Content Include="Image\cat.jpg" />
+    <Content Include="Image\Leo.jpg" />
+    <Content Include="Image\Luna.jpg" />
+    <Content Include="Image\Simon.jpg" />
     <Content Include="Img\blog-720.jpg" />
     <Content Include="Img\slider-bg-1.jpg" />
     <Content Include="Img\slider-bg-2.jpg" />
@@ -462,7 +469,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -73,6 +73,14 @@
 
     </dl>
 </div>
+<div>
+    @foreach(var comment in Model.Comments)
+    {
+        <p>
+            @Html.Display(comment.Body);
+        </p>
+    }
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
