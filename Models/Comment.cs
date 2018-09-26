@@ -9,7 +9,11 @@ namespace BlogApplication.Models
     {
         public int Id { get; set; }
         public int PostId { get; set; }
+        public virtual BlogPost Post { get; set; }
+
+
         public string AuthorId { get; set; }
+
         public string Body { get; set; }
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset? Updated { get; set; }

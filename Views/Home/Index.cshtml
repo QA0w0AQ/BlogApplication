@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<BlogApplication.Models.BlogPost>
 
+
 @{
     ViewBag.Title = "Home Page";
     Layout = null;
@@ -114,151 +115,157 @@
                 <h2>Latest blogs</h2>
             </div>
             @*<div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="recipe">
-                            <img src="img/recipes/1.jpg" alt="">
-                            <div class="recipe-info-warp">
-                                <div class="recipe-info">
-                                    <h3>Traditional Pizza</h3>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star is-fade"></i>
-                                    </div>
-                                </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="recipe">
+                    <img src="img/recipes/1.jpg" alt="">
+                    <div class="recipe-info-warp">
+                        <div class="recipe-info">
+                            <h3>Traditional Pizza</h3>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star is-fade"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-md-6">
-                        <div class="recipe">
-                            <img src="img/recipes/2.jpg" alt="">
-                            <div class="recipe-info-warp">
-                                <div class="recipe-info">
-                                    <h3>Italian home-made pasta</h3>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star is-fade"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="recipe">
-                            <img src="img/recipes/3.jpg" alt="">
-                            <div class="recipe-info-warp">
-                                <div class="recipe-info">
-                                    <h3>Chesse Cake Tart</h3>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star is-fade"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="recipe">
-                            <img src="img/recipes/4.jpg" alt="">
-                            <div class="recipe-info-warp">
-                                <div class="recipe-info">
-                                    <h3>Traditional Pizza</h3>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star is-fade"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="recipe">
-                            <img src="img/recipes/5.jpg" alt="">
-                            <div class="recipe-info-warp">
-                                <div class="recipe-info">
-                                    <h3>Italian home-made pasta</h3>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star is-fade"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="recipe">
-                            <img src="img/recipes/6.jpg" alt="">
-                            <div class="recipe-info-warp">
-                                <div class="recipe-info">
-                                    <h3>Chesse Cake Tart</h3>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star is-fade"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
-        </div>
-    </section>
-    <!-- Add section end -->
-    <!-- Gallery section end -->
-    <!-- Footer section  -->
-    <footer class="footer-section set-bg" data-setbg="~/Image/img/footer-bg.jpg">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="footer-logo">
-                        <img src="~/Image/img/logo.png" alt="">
-                    </div>
-                    <div class="footer-social">
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-lg-right">
-                    <ul class="footer-menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("BlogPosts", "", "BlogPosts")</li>
-                    </ul>
-                    <p class="copyright">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Connect with my github <a href="https://github.com/QA0w0AQ" target="_blank">Luke</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
                 </div>
             </div>
+            <div class="col-lg-4 col-md-6 col-md-6">
+                <div class="recipe">
+                    <img src="img/recipes/2.jpg" alt="">
+                    <div class="recipe-info-warp">
+                        <div class="recipe-info">
+                            <h3>Italian home-made pasta</h3>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star is-fade"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="recipe">
+                    <img src="img/recipes/3.jpg" alt="">
+                    <div class="recipe-info-warp">
+                        <div class="recipe-info">
+                            <h3>Chesse Cake Tart</h3>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star is-fade"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="recipe">
+                    <img src="img/recipes/4.jpg" alt="">
+                    <div class="recipe-info-warp">
+                        <div class="recipe-info">
+                            <h3>Traditional Pizza</h3>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star is-fade"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="recipe">
+                    <img src="img/recipes/5.jpg" alt="">
+                    <div class="recipe-info-warp">
+                        <div class="recipe-info">
+                            <h3>Italian home-made pasta</h3>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star is-fade"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="recipe">
+                    <img src="img/recipes/6.jpg" alt="">
+                    <div class="recipe-info-warp">
+                        <div class="recipe-info">
+                            <h3>Chesse Cake Tart</h3>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star is-fade"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+          
+                <p>
+                 @Model 
+                </p>
+            
         </div>
-    </footer>
-    <!-- Footer section end -->
-    <!--====== Javascripts & Jquery ======-->
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
-    <script src="~/Scripts/owl.carousel.min.js"></script>
-    <script src="~/Scripts/main.js"></script>
-</body>
+        </section>
+        <!-- Add section end -->
+        <!-- Gallery section end -->
+        <!-- Footer section  -->
+        <footer class="footer-section set-bg" data-setbg="~/Image/img/footer-bg.jpg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="footer-logo">
+                            <img src="~/Image/img/logo.png" alt="">
+                        </div>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-behance"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-lg-right">
+                        <ul class="footer-menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("BlogPosts", "", "BlogPosts")</li>
+                        </ul>
+                        <p class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | Connect with my github <a href="https://github.com/QA0w0AQ" target="_blank">Luke</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer section end -->
+        <!--====== Javascripts & Jquery ======-->
+        <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+        <script src="~/Scripts/owl.carousel.min.js"></script>
+        <script src="~/Scripts/main.js"></script>
+    </body>
 </html>

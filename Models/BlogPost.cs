@@ -11,7 +11,7 @@ namespace BlogApplication.Models
     {
         public BlogPost()
         {
-            this.Comments = new HashSet<Comment>();
+            Comments = new HashSet<Comment>();
             Created = DateTime.Now;
         }
 

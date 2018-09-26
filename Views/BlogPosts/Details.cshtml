@@ -1,5 +1,6 @@
 ﻿@model BlogApplication.Models.BlogPost
 
+
 @{
     ViewBag.Title = "Details";
 }
@@ -58,7 +59,7 @@
             @*@Html.DisplayFor(model => model.MediaURL)*@
             @if (Model.MediaURL != null)
             {
-            <img class="img-responsive" src="@Model.MediaURL" alt="">
+                <img class="img-responsive" src="@Model.MediaURL" alt="@Model.Title">
             }
 
         </dd>
@@ -71,16 +72,42 @@
             @Html.DisplayFor(model => model.Published)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @foreach (var comment in Model.Comments)
+            {
+            <form>
+                <h4>
+                    @comment.Author.UserName :
+                </h4>
+                <p>
+                    @comment.Body   
+                </p>
+                <p class="col-md-offset-4"> ---@comment.Created.ToString("yyyy/MM/dd HH:mm");</p>
+            </form>
+
+            }
+        </dd>
     </dl>
 </div>
-<div>
-    @foreach(var comment in Model.Comments)
-    {
-        <p>
-            @Html.Display(comment.Body);
-        </p>
-    }
-</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="col-lg-offset-2">
+        Submit your comment!
+    </div>
+    <div class="col-lg-offset-2">
+        @using (Html.BeginForm("CreateComment","BlogPosts",FormMethod.Post))
+        {
+            <input type="hidden" name="Slug" value="@Model.Slug" />
+            <textarea name="body"style="width:300px; height:80px;"></textarea>
+            <br>
+            <input type="submit" value="Submit" />
+        }
+    </div>
+}
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")

@@ -10,7 +10,7 @@
 <h2>Index</h2>
 
 <p>
-    @if ((User.Identity.IsAuthenticated && User.IsInRole("Admin")) || (User.Identity.IsAuthenticated && User.IsInRole("Moderator")))
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Moderator")  ) )   
     {
         @Html.ActionLink("Create New", "Create")
     }

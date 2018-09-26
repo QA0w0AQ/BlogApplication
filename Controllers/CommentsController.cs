@@ -10,6 +10,7 @@ using BlogApplication.Models;
 
 namespace BlogApplication.Controllers
 {
+    [RequireHttps]
     public class CommentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

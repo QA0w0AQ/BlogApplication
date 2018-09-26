@@ -9,11 +9,13 @@ using System.Web;
 using System.Web.Mvc;
 using BlogApplication.Helpers;
 using BlogApplication.Models;
+using Microsoft.AspNet.Identity;
 using PagedList;
 using PagedList.Mvc;
 
 namespace BlogApplication.Controllers
 {
+    [RequireHttps]
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -35,7 +37,11 @@ namespace BlogApplication.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlogPost blogPost = db.Posts.Where(p => p.Slug == Slug).FirstOrDefault();
+            BlogPost blogPost = db.Posts
+                .Include(p => p.Comments.Select(t => t.Author))
+                .Where(p => p.Slug == Slug)
+                .FirstOrDefault();
+
             if (blogPost == null)
             {
                 return HttpNotFound();
@@ -43,9 +49,42 @@ namespace BlogApplication.Controllers
             return View("Details",blogPost);
         }
 
+        [HttpPost]
+        public ActionResult Details(string Slug, string body)
+        {
+            if (Slug == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var blogPost = db.Posts
+                .Where(p => p.Slug == Slug)
+                .FirstOrDefault();
+
+            if (blogPost == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (string.IsNullOrWhiteSpace(body))
+            {
+                ViewBag.ErrorMessage = "Comment is empty!";
+                return View("Details", blogPost);
+            }
+
+            var comment = new Comment();
+            comment.AuthorId = User.Identity.GetUserId();
+            comment.PostId = blogPost.Id;
+            comment.Created = DateTime.Now;
+            comment.Body = body;
+
+            db.Comments.Add(comment);
+            db.SaveChanges();
+
+            return RedirectToAction("DetailsSlug", new {  Slug });
+        }
         // GET: BlogPosts/Create
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Moderator")]
+        [Authorize(Roles = "Admin,Moderator")]
         public ActionResult Create()
         {
             return View();
@@ -56,8 +95,7 @@ namespace BlogApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
-        [Authorize(Roles = "Moderator")]
+        [Authorize(Roles = "Admin,Moderator")]
         public ActionResult Create([Bind(Include = "Id,Title,Body,MediaURL,Published")] BlogPost blogPost, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
@@ -65,7 +103,7 @@ namespace BlogApplication.Controllers
                 var Slug = StringUtilities.URLFriendly(blogPost.Title);
 
                 if (String.IsNullOrWhiteSpace(Slug))
-                {
+                {   
                     ModelState.AddModelError("Title", "Invalid title");
                     return View(blogPost);
                 }
@@ -163,6 +201,40 @@ namespace BlogApplication.Controllers
             db.Posts.Remove(blogPost);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult CreateComment(string slug, string body)
+            {
+            if (slug == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var blogComment = db.Posts
+               .Where(p => p.Slug == slug)
+               .FirstOrDefault();
+
+
+            if (blogComment == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (string.IsNullOrWhiteSpace(body))
+            {
+                TempData["ErrorMessage"] = "Comment is empty!";
+                return View("Details", new { slug });
+            }
+            var comment = new Comment();
+            comment.AuthorId = User.Identity.GetUserId();
+            comment.PostId = blogComment.Id;
+            comment.Created = DateTime.Now;
+            comment.Body = body;
+
+            db.Comments.Add(comment);
+            db.SaveChanges();
+            return RedirectToAction("Details", new { slug });
         }
 
         protected override void Dispose(bool disposing)
