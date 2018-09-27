@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using BlogApplication.Models;
+using Owin.Security.Providers.LinkedIn;
 
 namespace BlogApplication
 {
@@ -63,6 +64,8 @@ namespace BlogApplication
                 ClientId = "490737011645-oghv937odlmpvvkm5al196rh8sf4jeli.apps.googleusercontent.com",
                 ClientSecret = "xTNJNUY6Z98UMoxTMjHiEr5z",
             });
+
+            app.UseLinkedInAuthentication("77fi03lja4f4gn", "pRZ1prgphS5mUFqQ");
         }
     }
 }
