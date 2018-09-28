@@ -121,7 +121,6 @@ C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PagedList.dll
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PagedList.Mvc.dll
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PagedList.xml
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PagedList.Mvc.xml
-C:\Users\SD15\source\repos\BlogApplication\BlogApplication\obj\Debug\BlogApplication.csprojAssemblyReference.cache
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\CsQuery.dll
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\en-html2enml.dll
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\Evernote.dll
@@ -186,3 +185,4 @@ C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\PreMailer.Net.dll
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\SgmlReaderDll.dll
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\Thrift.dll
 C:\Users\SD15\source\repos\BlogApplication\BlogApplication\bin\CsQuery.xml
+C:\Users\SD15\source\repos\BlogApplication\BlogApplication\obj\Debug\BlogApplication.csprojAssemblyReference.cache

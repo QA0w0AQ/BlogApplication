@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace BlogApplication.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

@@ -404,8 +404,10 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlogPost.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\EmailModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PersonalEmailService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -447,6 +449,7 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\Futura.woff" />
     <Content Include="fonts\Futura1.woff" />
+    <Content Include="private.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\circle-progress.min.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />

@@ -10,11 +10,20 @@
 <h2>Index</h2>
 
 <p>
-    @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Moderator")  ) )   
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Moderator")))
     {
         @Html.ActionLink("Create New", "Create")
     }
 </p>
+@using (Html.BeginForm("Index", "BlogPosts", FormMethod.Get))
+{
+    <div class="col-lg-offset-8 form-inline">
+    <input type="text" class="form-control" name="searchStr" placeholder="Search for posts" value="@ViewBag.Search" />
+    <input type="submit" class="btn btn-primary" value="Go" />
+    </div>
+    <br>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -80,4 +89,4 @@
 
 </table>
 Page @(pagedList.PageCount < pagedList.PageNumber ? 0 : pagedList.PageNumber) of @pagedList.PageCount
-@Html.PagedListPager(pagedList, page => Url.Action("Index", new { page }))
+@Html.PagedListPager(pagedList, page => Url.Action("Index", new { page, searchStr = ViewBag.Search}))

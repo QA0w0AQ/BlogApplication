@@ -5,7 +5,9 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using BlogApplication.Helpers;
 using BlogApplication.Models;
@@ -15,19 +17,46 @@ using PagedList.Mvc;
 
 namespace BlogApplication.Controllers
 {
-    [RequireHttps]
+    //[RequireHttps]
     public class BlogPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BlogPosts
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page, string searchStr)
         {
+
+            //var emailService = new PersonalEmailService();
+            //var mailMessage = new MailMessage(
+            //    WebConfigurationManager.AppSettings["username"],
+            //    WebConfigurationManager.AppSettings["emailto"]);
+            //mailMessage.Body = "This is a test e-mail.";
+            //mailMessage.Subject = "Test e-mail";
+            //emailService.Send(mailMessage);
+
+
+            ViewBag.Search = searchStr;
+
             int pageSize = 2; // display three blog posts at a time on this page
             int pageNumber = (page ?? 1);
 
-            var post = db.Posts.OrderBy(p => p.Id).ToPagedList(pageNumber, pageSize);
-            return View(post);
+            var PostQuery = db.Posts.OrderBy(p => p.Created).AsQueryable();
+            if (!string.IsNullOrWhiteSpace(searchStr))
+            {
+                PostQuery = PostQuery
+                    .Where(p => p.Title.Contains(searchStr) || 
+                                p.Body.Contains(searchStr)  ||
+                                p.Slug.Contains(searchStr)  ||
+                                p.Comments.Any(b=>b.Body.Contains(searchStr)  || 
+                                b.Author.Email.Contains(searchStr)  ||
+                                b.Author.DisplayName.Contains(searchStr)  ||
+                                b.Author.FirstName.Contains(searchStr)  ||
+                                b.Author.LastName.Contains(searchStr))                                
+                                );                              
+            }
+
+            var PostList = PostQuery.ToPagedList(pageNumber, pageSize);
+            return View(PostList);
         }
 
         // GET: BlogPosts/Details/5
