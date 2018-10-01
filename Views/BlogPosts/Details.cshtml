@@ -84,9 +84,14 @@
                     @comment.Author.UserName :
                 </h4>
                 <p>
-                    @comment.Body   
+                    @comment.Body
                 </p>
                 <p class="col-md-offset-4"> ---@comment.Created.ToString("yyyy/MM/dd HH:mm");</p>
+                @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Moderator")))
+                {
+                    <a href="@Url.Action("Edit", "Comments", new { id = comment.Id } )">Edit ||</a>
+                    <a href="@Url.Action("Delete", "Comments", new { id = comment.Id })">Delete</a>
+                }
             </form>
 
             }
